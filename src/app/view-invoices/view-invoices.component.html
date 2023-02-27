@@ -1,0 +1,20 @@
+<div style="direction: rtl;margin-top:50px; display:flex;justify-content: center;">
+    <table border="1">
+        <tr>
+            <th>מספר חשבונית</th>
+            <th>תאריך יצירה</th>
+            <th>תאריך עדכון</th>
+            <th>סטטוס</th>
+            <th>סכום</th>
+        </tr>
+        <tr *ngFor="let i of Invoices" style="cursor: pointer;" (click)="ViewDetails(i)">
+            <td>{{i.InvoiceID}}</td>
+            <td>{{i.AddedDate | date}}</td>
+            <td>{{i.LastUpdateDate | date}}</td>
+            <td>{{i.Status}}</td>
+            <td>{{i.Amount}}</td>
+        </tr>
+    </table>
+    
+</div>
+<div style="display: flex;justify-content: center;"><input class="btn-invoice" type="button" value="הוספת חשבונית" (click)="ViewDetails(null)"></div>

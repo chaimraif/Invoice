@@ -1,0 +1,24 @@
+<form [formGroup]="Upsert_Form" *ngIf="!!Show">
+    <div class="view-details">
+       
+       <span> מספר חשבונית   <input class="input-txt" type="text" readonly formControlName="InvoiceID"></span>
+       <span>  תאריך יצירה   <input type="text" class="input-txt"    readonly formControlName="AddedDate" ></span>
+       <span>  תאריך עדכון   <input type="text" class="input-txt"   readonly formControlName="LastUpdateDate"></span>
+       <span>  סטטוס    
+        <select style="width: 277px;" type="text"  class="input-txt"  formControlName="Status">
+            <option>שולם</option>
+            <option>בטיפול</option>
+            <option>ממתין לאישור</option>
+       </select>
+       </span>
+       <span>  כמות    <input type="text"  class="input-txt"  formControlName="Amount"></span>       
+    </div>
+    <div style="display: flex;justify-content: center;">
+     <input  type="button" value="שמירת חשבונית" class="btn-invoice" [disabled]="!Upsert_Form?.valid || !Upsert_Form.dirty" (click)="Upsert()">
+    </div> 
+
+
+</form>
+<app-view-invoices [Invoices]="Invoices"
+(selected)="GetSelectedItem($event)"
+></app-view-invoices>
